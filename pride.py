@@ -23,9 +23,7 @@ overlay_2 = VideoFileClip("overlay_2.mp4")
 overlay_3 = VideoFileClip("overlay_3.mp4")
 
 f_clips = []
-
 total_duration = 0
-
 for fname in itertools.cycle(files):
     source_path = os.path.join(VID_DIR, fname)
     clip_1 = VideoFileClip(source_path)
@@ -53,9 +51,7 @@ print("Final clip duration = {} secs".format(final_clip.duration))
 print("Length of word list = {}".format(len(word_list)))
 
 w, h = final_clip.size
-
 word_clips = []
-
 for word in word_list:
     watermark_text = (
         TextClip(
@@ -95,6 +91,8 @@ intro_text = (
     .fadeout(0.5)
 )
 
+
+### ENDING IMAGE ###
 image_clip = (
     ImageClip("ending-image.jpg")
     .resize(final_merged.size)
