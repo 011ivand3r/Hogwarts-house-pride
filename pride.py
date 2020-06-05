@@ -35,7 +35,7 @@ for fname in itertools.cycle(files):
         [
             subclip,
             overlay_3.subclip(0, (5 + r % 8)).resize(subclip.size).set_opacity(0.30),
-            overlay_2.subclip(0, (5 + r % 8)).resize(subclip.size).set_opacity(0.30)
+            overlay_2.subclip(0, (5 + r % 8)).resize(subclip.size).set_opacity(0.30),
         ]
     )
     if r % 2 == 1:  # adds a fade_in transition if r is odd.
@@ -49,8 +49,8 @@ for fname in itertools.cycle(files):
 
 final_clip = concatenate_videoclips(f_clips)
 
-print('Final clip duration = {} secs'.format(final_clip.duration))
-print('Length of word list = {}'.format(len(word_list)))
+print("Final clip duration = {} secs".format(final_clip.duration))
+print("Length of word list = {}".format(len(word_list)))
 
 w, h = final_clip.size
 
@@ -59,7 +59,13 @@ word_clips = []
 for word in word_list:
     watermark_text = (
         TextClip(
-            word, font="Bell-MT-Italic", fontsize=80, color="white", align="center", size=(w, 250), kerning=3
+            word,
+            font="Bell-MT-Italic",
+            fontsize=80,
+            color="white",
+            align="center",
+            size=(w, 250),
+            kerning=3,
         )
         .set_position("top")
         .fadein(0.5)
@@ -89,15 +95,22 @@ intro_text = (
     .fadeout(0.5)
 )
 
-image_clip = ImageClip('ending-image.jpg').resize(final_merged.size).set_duration(3).set_opacity(0.8)
+image_clip = (
+    ImageClip("ending-image.jpg")
+    .resize(final_merged.size)
+    .set_duration(3)
+    .set_opacity(0.8)
+)
 
-final_intro_clip = concatenate_videoclips([intro_text, final_merged, image_clip]) 
+final_intro_clip = concatenate_videoclips([intro_text, final_merged, image_clip])
 
-final_overlay = CompositeVideoClip([final_intro_clip, overlay_1.resize(final_intro_clip.size).set_opacity(0.20)])
+final_overlay = CompositeVideoClip(
+    [final_intro_clip, overlay_1.resize(final_intro_clip.size).set_opacity(0.20)]
+)
 
 
 ### AUDIO ###
-source_audio_path = os.path.join(BASE_DIR, music_file)  
+source_audio_path = os.path.join(BASE_DIR, music_file)
 dur = final_overlay.duration
 bg_audio = AudioFileClip(source_audio_path).subclip(0, dur)
 final_av_clip = final_overlay.set_audio(bg_audio.set_start(6))
