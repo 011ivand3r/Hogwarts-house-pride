@@ -4,7 +4,7 @@ This is a bot that takes a bunch of videos and an audio as inputs and gives a se
 ### How to use
 1. Put all the input video files and clips in the "Input" directory.
 2. Change the words in the `words.py` file according to the *qualities* of a particular house.
-3. Run the `pride.py` using Python3.
+3. Run `pride.py` using Python3.
 4. Enter the duration of the video, the background musicfile name & the Hogwarts house name.
 5. Finally you'll get an output file named "final-vdieo.mp4".
 
