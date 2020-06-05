@@ -11,7 +11,7 @@ This is a bot that takes a bunch of videos and an audio as inputs and gives a se
 ### Dependencies
 - moviepy 1.0.3
 - Also install the latest version of [ImageMagick](https://imagemagick.org/script/download.php).
-- If you are on Windows, then to use ImageMagick you have to manually update the "default_config.py" file in moviepy.\
+- If you are on Windows, then to use ImageMagick you will have to manually update the "default_config.py" file in moviepy.\
 Just add the following line to the file.\
 ```IMAGEMAGICK_BINARY = "<file\\path\\to\\magick.exe>"```
 
