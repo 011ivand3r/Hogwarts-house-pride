@@ -99,9 +99,8 @@ class Potions_pot:
             .fadein(0.5)
             .fadeout(0.5)
         )
-
-        image_clip = ImageClip('harry-potter-gryffindor.jpg').resize(final_merged.size).set_duration(2).set_opacity(0.8)
-        self.final_video = concatenate_videoclips([intro_text, final_merged, image_clip]) 
+        
+        self.final_video = concatenate_videoclips([intro_text, final_merged]) 
         self.final_overlay = CompositeVideoClip([self.final_video, overlay_1.resize(self.final_video.size).set_opacity(0.25).set_duration(self.final_video.duration)])
 
     def add_music(self):
