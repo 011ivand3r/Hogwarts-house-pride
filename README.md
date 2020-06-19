@@ -2,10 +2,13 @@
 This is a bot that takes a bunch of videos and an audio as inputs and gives a self-esteem boosting Hogwarts House Pride video.
 
 ### How to use
-1. Put all the input video files and clips in the "Input" directory.
-2. Change the words in the `words.py` file according to the *qualities* of a particular house.
+1. Put all the clips you want to mash up in a folder, and put it in the same directory as `pride.py`.
+2. Change the words in the `words.py` file according to the *qualities* of a particular Hogwarts house.
 3. Run `pride.py` using Python3.
-4. Enter the duration of the video, the background musicfile name & the Hogwarts house name.
+4. Enter the following.
+    - Duration of the video
+    - The background musicfile name 
+    - The video-clips folder name
 5. Finally you'll get an output file named "final-video.mp4".
 
 ### Dependencies
