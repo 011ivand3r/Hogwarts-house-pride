@@ -37,6 +37,7 @@ class Potions_pot:
         self.word_overlay()
         self.add_music()
 
+        
     def add_clips(self, desired_duration):
         for (root, dirs, files) in os.walk(VID_DIR):
             print(files)
@@ -67,6 +68,7 @@ class Potions_pot:
         print('Final clip duration = {} secs'.format(self.final_clip.duration))
         print('Length of word list = ', (len(word_list)))
 
+        
     def word_overlay(self):
         w, h = self.final_clip.size
         word_clips = []
@@ -103,13 +105,13 @@ class Potions_pot:
         self.final_video = concatenate_videoclips([intro_text, final_merged]) 
         self.final_overlay = CompositeVideoClip([self.final_video, overlay_1.resize(self.final_video.size).set_opacity(0.25).set_duration(self.final_video.duration)])
 
+        
     def add_music(self):
         source_audio_path = os.path.join(BASE_DIR, music_file)  
         dur = self.final_overlay.duration
         bg_audio = AudioFileClip(source_audio_path).subclip(0, dur)
         final_av_clip = self.final_overlay.set_audio(bg_audio)
         final_av_clip.write_videofile(final_audio_video_path, fps=60)
-
 
 
 g = Potions_pot(music = music_file, video_folder = vid_directory)
