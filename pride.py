@@ -6,7 +6,7 @@ import itertools
 from words import word_list
 
 
-desired_duration = int(input("Desired edit duration in seconds : "))
+desired_duration = int(input("Video duration in seconds : "))
 music_file = input("Background-music file name : ")
 vid_directory = input("video-clips folder name : ")
 
